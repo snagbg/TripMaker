@@ -1,0 +1,73 @@
+﻿<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>Ani AngularJS Dashboard Theme</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width"/>
+    @*<link rel="stylesheet" href="styles/main.css" />*@
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+   
+</head>
+<body>
+    <br />
+    <br />
+    <div ng-app="TripMaker">
+        <div class="" ng-controller="SubscriberController">
+            <form name="CreateSubscribe" >
+                <h3> Create a Subscriber</h3>
+                <input type="text" placeholder="Hint : Subscribers user id" ng-model= "subscriber.userid">
+                <input type="submit"  value="Create Subscriber" ng-click="CreateSubscriber()"/>
+                <div ui-view>{{message}}</div>
+            </form>
+            <br />
+            <form name="CreateTrip">
+                <h3> Create a Trip</h3>
+                <input type="text" placeholder="Hint: Trip Name" ng-model="trip.name" />
+                <input type="submit" value="Create Trip" ng-click="CreateT()" />
+                <div ui-view>{{message}}</div>
+            </form>
+
+            <form name="CreateUserTrips">
+                <h3> Associate a user with a trip</h3>
+                <div>
+                    Select a Registered Subscribers : {{subscribername}}
+                    <select data-ng-model="subscribername"
+                            data-ng-options="subscribr for subscribr in registeredSubscribers"></select>
+                </div>
+
+                <div>
+                    Select a Trip for the Subscriber : {{tripname}}
+                    <select data-ng-model="tripname"
+                            data-ng-options="trp for trp in allTrips"></select>
+                </div>
+
+
+
+                <input type="submit" value="Create User Trip" ng-click="CreateUT()" />
+                <div ui-view>{{message}}</div>
+            </form>
+            <br />
+            
+           
+
+            
+
+            
+
+            
+        </div>
+    </div>
+    
+   
+    <script src="~/Scripts/angular.js"></script>
+    @*<script src="~/Scripts/angular-mocks/angular-mocks.js"></script>*@
+
+
+
+    <script src="~/Scripts/Custom/app.js"></script>
+    @*<script src="~/Scripts/Custom/controllers/login.js"></script>
+    <script src="~/Scripts/Custom/controllers/dashboard.js"></script>*@
+    
+</body>
+</html>
